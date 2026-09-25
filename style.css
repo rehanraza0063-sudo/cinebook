@@ -1,0 +1,572 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #090a0f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+
+/* NAVBAR */
+
+header {
+    height: 70px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    background: #0d0e14;
+
+    border-bottom:
+        1px solid #252631;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #ff315c;
+}
+
+header input {
+    flex: 1;
+    max-width: 450px;
+
+    background: #181920;
+
+    border: 1px solid #30313c;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    color: white;
+}
+
+header select {
+    background: #181920;
+
+    color: white;
+
+    border:
+        1px solid #30313c;
+
+    padding: 11px;
+
+    border-radius: 8px;
+}
+
+.login {
+    background: #ff315c;
+
+    color: white;
+
+    border: 0;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 70px 8%;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #401325,
+            #090a0f 55%
+        );
+}
+
+.hero h1 {
+    font-size: 65px;
+
+    line-height: 1;
+
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: #ff315c;
+}
+
+.hero p {
+    max-width: 550px;
+
+    color: #a7a8b2;
+
+    line-height: 1.7;
+}
+
+.small-title {
+    color: #ff315c;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+
+    background: #ff315c;
+
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 9px;
+
+    border: 0;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* MOVIES */
+
+section#movies {
+    padding: 70px 8%;
+}
+
+.section-title h2 {
+    font-size: 36px;
+}
+
+.movie-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+.movie-card {
+    background: #12131a;
+
+    border:
+        1px solid #242530;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: .25s;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #ff315c;
+}
+
+.poster-container {
+    position: relative;
+}
+
+.poster-container img {
+    width: 100%;
+
+    height: 310px;
+
+    object-fit: cover;
+}
+
+.rating {
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 10px;
+
+    background: #08090ddd;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+}
+
+.movie-info {
+    padding: 17px;
+}
+
+.movie-info h3 {
+    margin-top: 0;
+}
+
+.movie-info p {
+    color: #858793;
+
+    font-size: 13px;
+}
+
+.book-link {
+    color: #ff315c;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* MOVIE DETAILS */
+
+.movie-details {
+    padding: 70px 10%;
+
+    display: flex;
+
+    gap: 50px;
+
+    align-items: center;
+
+    background: #101118;
+}
+
+.movie-poster {
+    width: 300px;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+}
+
+.movie-description h1 {
+    font-size: 55px;
+}
+
+.movie-description p {
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+
+/* BOOKING */
+
+.booking {
+    padding: 70px 8%;
+}
+
+.booking select {
+    background: #171820;
+
+    color: white;
+
+    padding: 13px;
+
+    border:
+        1px solid #30313c;
+
+    border-radius: 8px;
+
+    min-width: 300px;
+}
+
+.showtimes {
+    display: flex;
+
+    gap: 10px;
+
+    margin: 15px 0 35px;
+}
+
+.showtime {
+    background: #15161d;
+
+    color: #aaa;
+
+    border:
+        1px solid #343540;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.showtime.selected {
+    background: #30121b;
+
+    color: white;
+
+    border-color: #ff315c;
+}
+
+
+/* SCREEN */
+
+.screen {
+    width: 65%;
+
+    margin: 30px auto;
+
+    padding: 12px;
+
+    text-align: center;
+
+    background: #272833;
+
+    border-radius: 50%;
+
+    color: #aaa;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+}
+
+
+/* SEATS */
+
+.seats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(10, 40px);
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.seat {
+    height: 35px;
+
+    background: #171820;
+
+    color: #aaa;
+
+    border:
+        1px solid #454652;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.seat.selected {
+    background: #ff315c;
+
+    color: white;
+
+    border-color: #ff315c;
+}
+
+.seat.occupied {
+    background: #3b3c44;
+
+    color: #777;
+
+    cursor: not-allowed;
+}
+
+.seat-info {
+    text-align: center;
+
+    color: #888;
+
+    margin: 25px;
+}
+
+
+/* SUMMARY */
+
+.booking-summary {
+    max-width: 500px;
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+    background: #12131a;
+
+    border:
+        1px solid #292a35;
+
+    border-radius: 18px;
+}
+
+.booking-summary hr {
+    border-color: #292a35;
+}
+
+.food {
+    margin-right: 8px;
+}
+
+
+/* TICKET */
+
+.ticket-page {
+    min-height: 90vh;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 60px;
+}
+
+.ticket {
+    max-width: 700px;
+
+    width: 100%;
+
+    background: #f4f3ef;
+
+    color: #171820;
+
+    padding: 35px;
+
+    border-radius: 20px;
+}
+
+.ticket h1 span {
+    color: #ff315c;
+}
+
+.ticket-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    border-top:
+        1px dashed #999;
+
+    border-bottom:
+        1px dashed #999;
+
+    margin: 25px 0;
+
+    padding: 20px 0;
+}
+
+.qr {
+    display: block;
+
+    width: 150px;
+
+    margin: 20px auto;
+}
+
+.back {
+    display: inline-block;
+
+    margin-left: 15px;
+
+    color: #ff315c;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 50px 8%;
+
+    border-top:
+        1px solid #242530;
+
+    color: #888;
+}
+
+footer h2 span {
+    color: #ff315c;
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px) {
+
+    .movie-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:600px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    header input,
+    header select {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-details {
+        display: block;
+
+        padding: 40px 6%;
+    }
+
+    .movie-poster {
+        width: 220px;
+
+        height: 320px;
+    }
+
+    .movie-description h1 {
+        font-size: 40px;
+    }
+
+    .seats {
+        grid-template-columns:
+            repeat(10, 27px);
+
+        gap: 5px;
+    }
+
+    .seat {
+        height: 27px;
+
+        font-size: 10px;
+    }
+
+}

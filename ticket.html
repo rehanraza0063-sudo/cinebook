@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>CineBook Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<section class="ticket-page">
+
+    <div class="ticket">
+
+        <h1>
+            Cine<span>Book</span>
+        </h1>
+
+        <p class="small-title">
+            E-TICKET
+        </p>
+
+
+        <h2>
+            {{ booking["movie"] }}
+        </h2>
+
+
+        <div class="ticket-details">
+
+            <p>
+                <b>Booking ID</b><br>
+                {{ booking["id"] }}
+            </p>
+
+            <p>
+                <b>Theatre</b><br>
+                {{ booking["theatre"] }}
+            </p>
+
+            <p>
+                <b>Show Time</b><br>
+                {{ booking["show_time"] }}
+            </p>
+
+            <p>
+                <b>Seats</b><br>
+                {{ booking["seats"] }}
+            </p>
+
+            <p>
+                <b>Food</b><br>
+                {{ booking["food"] }}
+            </p>
+
+            <p>
+                <b>Total</b><br>
+                ₹{{ booking["total"] }}
+            </p>
+
+        </div>
+
+
+        <img
+            src="{{ qr_file }}"
+            class="qr"
+        >
+
+
+        <button
+            class="button"
+            onclick="window.print()"
+        >
+
+            Print Ticket
+
+        </button>
+
+
+        <a href="/" class="back">
+            ← Back to CineBook
+        </a>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

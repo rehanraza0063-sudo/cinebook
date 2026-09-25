@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>{{ movie.title }} - CineBook</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <a href="/" class="logo">
+        Cine<span>Book</span>
+    </a>
+
+</header>
+
+
+<section class="movie-details">
+
+    <img
+        src="{{ movie.poster }}"
+        class="movie-poster"
+    >
+
+    <div class="movie-description">
+
+        <p class="small-title">
+            {{ movie.genre }}
+        </p>
+
+        <h1>
+            {{ movie.title }}
+        </h1>
+
+        <p>
+            ⭐ {{ movie.rating }}
+            ·
+            {{ movie.duration }}
+            ·
+            {{ movie.language }}
+        </p>
+
+        <p>
+            {{ movie.description }}
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="booking">
+
+    <h2>
+        Book Your Tickets
+    </h2>
+
+
+    <h3>
+        1. Select Theatre
+    </h3>
+
+    <select id="theatre">
+
+        {% for theatre in theatres %}
+
+        <option value="{{ theatre }}">
+            {{ theatre }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <h3>
+        2. Select Showtime
+    </h3>
+
+    <div class="showtimes">
+
+        {% for time in show_times %}
+
+        <button
+            class="showtime {% if loop.first %}selected{% endif %}"
+            onclick="selectTime(this)"
+            data-time="{{ time }}"
+        >
+
+            {{ time }}
+
+        </button>
+
+        {% endfor %}
+
+    </div>
+
+
+    <h3>
+        3. Select Seats
+    </h3>
+
+
+    <div class="screen">
+        SCREEN
+    </div>
+
+
+    <div id="seats" class="seats">
+
+    </div>
+
+
+    <div class="seat-info">
+
+        <span>
+            🟦 Available
+        </span>
+
+        <span>
+            🟥 Selected
+        </span>
+
+        <span>
+            ⬛ Occupied
+        </span>
+
+    </div>
+
+
+    <div class="booking-summary">
+
+        <h2>
+            Booking Summary
+        </h2>
+
+        <p>
+            Movie:
+            <b>{{ movie.title }}</b>
+        </p>
+
+        <p>
+            Seats:
+            <b id="selectedSeats">None</b>
+        </p>
+
+        <p>
+            Ticket Price:
+            ₹<b id="ticketPrice">0</b>
+        </p>
+
+
+        <h3>
+            Add Snacks 🍿
+        </h3>
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="food"
+                data-price="180"
+            >
+
+            Popcorn Combo - ₹180
+
+        </label>
+
+        <br>
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="food"
+                data-price="160"
+            >
+
+            Nachos + Coke - ₹160
+
+        </label>
+
+
+        <hr>
+
+
+        <h2>
+
+            Total:
+            ₹<span id="total">0</span>
+
+        </h2>
+
+
+        <button
+            class="button"
+            onclick="makeBooking()"
+        >
+
+            Continue to Payment
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const moviePrice = {{ movie.price }};
+
+</script>
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>

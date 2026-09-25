@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>CineBook</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Cine<span>Book</span>
+    </div>
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search movies..."
+        onkeyup="searchMovies()"
+    >
+
+    <select>
+
+        <option>Mumbai</option>
+        <option>Thane</option>
+        <option>Pune</option>
+        <option>Navi Mumbai</option>
+
+    </select>
+
+    <button class="login">
+        Sign In
+    </button>
+
+</header>
+
+
+<section class="hero">
+
+    <div>
+
+        <p class="small-title">
+            YOUR CINEMA EXPERIENCE
+        </p>
+
+        <h1>
+            Movies that<br>
+            <span>move you.</span>
+        </h1>
+
+        <p>
+            Discover movies, choose your favourite seats
+            and book your cinema experience.
+        </p>
+
+        <a href="#movies" class="button">
+            Explore Movies
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="movies">
+
+    <div class="section-title">
+
+        <div>
+
+            <p class="small-title">
+                CURATED FOR YOU
+            </p>
+
+            <h2>
+                Now Showing
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="movie-grid" id="movieGrid">
+
+        {% for movie in movies %}
+
+        <div
+            class="movie-card"
+            data-title="{{ movie.title.lower() }}"
+        >
+
+            <a href="/movie/{{ movie.id }}">
+
+                <div class="poster-container">
+
+                    <img
+                        src="{{ movie.poster }}"
+                        alt="{{ movie.title }}"
+                    >
+
+                    <div class="rating">
+
+                        ★ {{ movie.rating }}
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <div class="movie-info">
+
+                <h3>
+                    {{ movie.title }}
+                </h3>
+
+                <p>
+                    {{ movie.genre }}
+                </p>
+
+                <p>
+                    {{ movie.language }}
+                    ·
+                    {{ movie.duration }}
+                </p>
+
+                <a
+                    href="/movie/{{ movie.id }}"
+                    class="book-link"
+                >
+                    Book Tickets →
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h2>
+        Cine<span>Book</span>
+    </h2>
+
+    <p>
+        Your cinema. Your choice. Your experience.
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
